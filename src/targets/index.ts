@@ -2,21 +2,18 @@ import type { ClaudePlugin } from "../types/claude"
 import type { OpenCodeBundle } from "../types/opencode"
 import type { CodexBundle } from "../types/codex"
 import type { DroidBundle } from "../types/droid"
-import type { CursorBundle } from "../types/cursor"
 import type { PiBundle } from "../types/pi"
 import type { CopilotBundle } from "../types/copilot"
 import type { GeminiBundle } from "../types/gemini"
 import { convertClaudeToOpenCode, type ClaudeToOpenCodeOptions } from "../converters/claude-to-opencode"
 import { convertClaudeToCodex } from "../converters/claude-to-codex"
 import { convertClaudeToDroid } from "../converters/claude-to-droid"
-import { convertClaudeToCursor } from "../converters/claude-to-cursor"
 import { convertClaudeToPi } from "../converters/claude-to-pi"
 import { convertClaudeToCopilot } from "../converters/claude-to-copilot"
 import { convertClaudeToGemini } from "../converters/claude-to-gemini"
 import { writeOpenCodeBundle } from "./opencode"
 import { writeCodexBundle } from "./codex"
 import { writeDroidBundle } from "./droid"
-import { writeCursorBundle } from "./cursor"
 import { writePiBundle } from "./pi"
 import { writeCopilotBundle } from "./copilot"
 import { writeGeminiBundle } from "./gemini"
@@ -46,12 +43,6 @@ export const targets: Record<string, TargetHandler> = {
     implemented: true,
     convert: convertClaudeToDroid as TargetHandler<DroidBundle>["convert"],
     write: writeDroidBundle as TargetHandler<DroidBundle>["write"],
-  },
-  cursor: {
-    name: "cursor",
-    implemented: true,
-    convert: convertClaudeToCursor as TargetHandler<CursorBundle>["convert"],
-    write: writeCursorBundle as TargetHandler<CursorBundle>["write"],
   },
   pi: {
     name: "pi",
